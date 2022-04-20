@@ -4,8 +4,11 @@ cd <path>
 #  Build an Image 
 docker build -t my-prometheus .
 
+
 # Run the image as a Container
-docker run -p 9090:9090 --rm --name my-prometheus my-prometheus
+docker run -d -p 9090:9090 --rm --name my-prometheus my-prometheus
+docker run -d -p 9093:9093 --rm  --name my-alertmanager prom/alertmanager
+
 
 # Go to Prometheus Dashboard
 http://localhost:9090
